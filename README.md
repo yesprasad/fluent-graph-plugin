@@ -63,6 +63,11 @@ Everything runs on your machine.
 - The plugin sends no data to the author or to any other service. Fluent-Graph's optional
   AI summary is off unless you configure your own provider, and the plugin never turns it
   on. Reviewing a GitHub pull request with `--pr` contacts GitHub, and only when you ask for it.
+- The plugin collects no personal data. It has no telemetry, no accounts, and no server, so
+  nothing you do with it reaches the author.
+
+Questions about this section or about privacy: open an issue at
+https://github.com/yesprasad/fluent-graph-plugin/issues.
 
 ## Requirements
 
