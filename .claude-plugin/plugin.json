@@ -20,5 +20,9 @@
     "impact-analysis",
     "dependency-graph",
     "validate"
-  ]
+  ],
+  "homepage": "https://github.com/yesprasad/fluent-graph-plugin",
+  "repository": "https://github.com/yesprasad/fluent-graph-plugin",
+  "documentationUrl": "https://github.com/yesprasad/fluent-graph-plugin#readme",
+  "supportUrl": "https://github.com/yesprasad/fluent-graph-plugin/issues"
 }
