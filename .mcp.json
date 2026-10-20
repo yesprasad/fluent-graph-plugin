@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fluent-graph": {
+      "command": "npx",
+      "args": ["-y", "@yesprasad/fluent-graph-mcp@0.1.0", "--project-root", "."]
+    }
+  }
+}
