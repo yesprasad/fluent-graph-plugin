@@ -102,3 +102,5 @@ Start with **"Checked with fluent-graph validate:"**. Then:
   logic, data, roles on the instance, or test results. Say so.
 - Don't edit files to clear findings without the user's agreement.
 - Never contacts an instance. Only `analyze` writes a file, and only where `--output` points.
+  A `fluent-graph.json` in the project root comes from the fluent-graph MCP server at startup,
+  not from your command. Suggest adding it to `.gitignore`; don't delete or commit it.
