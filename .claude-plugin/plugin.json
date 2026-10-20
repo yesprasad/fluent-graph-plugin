@@ -1,6 +1,7 @@
 {
   "name": "fluent-graph",
   "displayName": "Fluent-Graph",
+  "icon": ".claude-plugin/icon.png",
   "version": "0.3.0",
   "description": "Verify ServiceNow Fluent (now-sdk) changes before commit or deploy, look up what a table touches before changing it, and check a whole app for structural defects: changed records, blast radius, DELETEs, and findings for risky ACL and business rule changes.",
   "author": {
