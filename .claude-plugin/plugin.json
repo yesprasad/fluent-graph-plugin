@@ -2,8 +2,22 @@
   "name": "fluent-graph",
   "displayName": "Fluent-Graph",
   "version": "0.3.0",
-  "description": "Verify ServiceNow Fluent (now-sdk) changes before commit or deploy: every changed record across the app, its blast radius, DELETEs in the deployment, and findings for risky ACL and business rule changes.",
-  "author": { "name": "Eshwar Sowbhagya Prasad Yaddanapudi" },
+  "description": "Verify ServiceNow Fluent (now-sdk) changes before commit or deploy, look up what a table touches before changing it, and check a whole app for structural defects: changed records, blast radius, DELETEs, and findings for risky ACL and business rule changes.",
+  "author": {
+    "name": "Eshwar Sowbhagya Prasad Yaddanapudi"
+  },
   "license": "MIT",
-  "keywords": ["servicenow", "fluent", "now-sdk", "servicenow-sdk", "code-review", "verify", "blast-radius", "pre-commit"]
+  "keywords": [
+    "servicenow",
+    "fluent",
+    "now-sdk",
+    "servicenow-sdk",
+    "code-review",
+    "verify",
+    "blast-radius",
+    "pre-commit",
+    "impact-analysis",
+    "dependency-graph",
+    "validate"
+  ]
 }

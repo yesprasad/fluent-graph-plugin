@@ -18,6 +18,9 @@ against its git baseline.
 - When the user asks "is this safe?", "what does this affect?", or "what's the blast radius?".
 - After fixing a finding, run it again to confirm.
 
+Before you make a change, look up what it touches with `fluent-graph-impact`.
+To check the whole app, not just one change, use `fluent-graph-validate`.
+
 ## How to run it
 
 From the project root (the folder with `now.config.json`):

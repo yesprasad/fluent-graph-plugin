@@ -29,22 +29,35 @@ Or add **Fluent-Graph** from the plugin directory on claude.ai.
   - rule findings for risky changes: ACL role grants and condition changes, business rule
     trigger changes, broken references, and new deletes
   - what the check could not assess
+- **`fluent-graph-impact` skill.** Before Claude changes a table, field, ACL, business
+  rule, or client script, it looks up what depends on it: the table's fields, attached
+  scripts and rules, references, and every dependent artifact hop by hop
+  (`fluent-graph context` and `fluent-graph blast`, or the MCP tools).
+- **`fluent-graph-validate` skill.** When you ask whether an app is healthy, before a
+  release, or when setting up CI, Claude checks the whole app for structural defects:
+  fields that don't exist, scripts with an undefined run order, duplicate definitions,
+  and references to records marked for deletion (`fluent-graph validate`). It can also map
+  everything the app contains (`fluent-graph analyze`).
 - **A reminder after Fluent edits.** When Claude edits a `*.now.ts` or `now.config.json`
   file, a hook reminds it to verify the change before it finishes.
-- **The fluent-graph MCP server**, so Claude can look up a record's dependencies and blast
-  radius before it changes it.
+- **The fluent-graph MCP server**, with four tools: `list_artifacts`, `get_artifact`,
+  `blast_radius`, and `refresh`. Claude uses them to look up an artifact and its
+  dependencies without running a command each time.
 
 ## What it runs and sends
 
 Everything runs on your machine.
 
-- The skill runs `npx -y @yesprasad/fluent-graph@0.3.0 review --details --no-banner` in
-  your project. `npx` downloads that package from the public npm registry the first time.
-  The review reads your project files and git history, builds the app locally, and prints a
-  report. It does not modify your project and does not contact a ServiceNow instance.
+- The skills run `npx -y @yesprasad/fluent-graph@0.3.0` in your project, with `review`,
+  `context`, `blast`, `validate`, or `analyze`. `npx` downloads that package from the public
+  npm registry the first time. The commands read your project files (and, for `review`, git
+  history), build the app locally, and print a report. They do not change your source files
+  and do not contact a ServiceNow instance. When a skill runs `analyze`, it writes the graph
+  file to your temporary folder, not into the project.
 - The MCP server runs `npx -y @yesprasad/fluent-graph-mcp@0.1.0 --project-root .`,
   downloaded from the public npm registry the same way. It answers dependency questions
-  from your local project.
+  from your local project. On startup it saves the app's graph as `fluent-graph.json` in the
+  project root. Add that file to `.gitignore`.
 - The hook (`hooks/fluent-change-reminder.sh`) reads the edit event Claude Code passes to it,
   checks the file name, and prints a reminder. It makes no network calls.
 - The plugin sends no data to the author or to any other service. Fluent-Graph's optional
